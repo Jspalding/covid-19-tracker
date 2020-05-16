@@ -17,10 +17,10 @@ const DesktopWrapper = props => {
         setIsLoading(true);
 
         const fetchData = async () => {
-            const result = await axios(
-                `${SUMMARY_URL}`
-            );
-            setSummaryData(result.data);
+            // const result = await axios(
+            //     `${SUMMARY_URL}`
+            // );
+            // setSummaryData(result.data);
             setIsLoading(false);
         };
 
@@ -29,25 +29,36 @@ const DesktopWrapper = props => {
 
     return (
         <React.Fragment>
-            <HeadDataCard
-                cardTitle="Confirmed Cases"
-                mainData={summaryData.Global.TotalConfirmed}
-                secondaryData={summaryData.Global.NewConfirmed}
-                isLoading={isLoading} />
-            <HeadDataCard
-                cardTitle="Deaths"
-                mainData={summaryData.Global.TotalDeaths}
-                secondaryData={summaryData.Global.NewDeaths}
-                isLoading={isLoading} />
-            <HeadDataCard
-                cardTitle="Recovered"
-                mainData={summaryData.Global.TotalRecovered}
-                secondaryData={summaryData.Global.NewRecovered}
-                isLoading={isLoading} />
-            <DisplayTable
-                cardTitle="Countries"
-                mainData={summaryData.Countries}
-                isLoading={isLoading} />
+            <div className="grid grid-cols-6 gap-5">
+                <HeadDataCard
+                    cardTitle="Covid Cases"
+                    cardTitleColour="blue"
+                    mainData={summaryData.Global.TotalConfirmed}
+                    secondaryData={summaryData.Global.NewConfirmed}
+                    isLoading={isLoading}
+                />
+                <HeadDataCard
+                    cardTitle="Deaths"
+                    cardTitleColour="red"
+                    mainData={summaryData.Global.TotalDeaths}
+                    secondaryData={summaryData.Global.NewDeaths}
+                    isLoading={isLoading}
+                />
+                <HeadDataCard
+                    cardTitle="Recovered"
+                    cardTitleColour="teal"
+                    mainData={summaryData.Global.TotalRecovered}
+                    secondaryData={summaryData.Global.NewRecovered}
+                    isLoading={isLoading}
+                />
+            </div>
+            <div className="grid grid-cols-1">
+                <DisplayTable
+                    cardTitle="Countries"
+                    cardTitleColour="blue"
+                    mainData={summaryData.Countries}
+                    isLoading={isLoading} />
+            </div>
         </React.Fragment>
     )
 }
