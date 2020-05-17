@@ -1,19 +1,35 @@
-import React from 'react';
-import Particles from 'react-particles-js';
+import React, { useState, useEffect } from 'react';
 
 import SideHeader from "./components/SideHeader/SideHeader";
 import DesktopWrapper from "./components/DesktopWrapper/DesktopWrapper";
+import MobileWrapper from "./components/MobileWrapper/MobileWrapper";
 
 const App = props => {
+	
+	const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
-	let content = (
-		<div className="mx-auto">
-			<div className="grid grid-cols-2">
+	useEffect(() => {
+		window.addEventListener('resize', () => setWindowWidth(window.innerWidth));
+	}, []);
+
+	let width = windowWidth;
+	let mobile = width <= 900;
+	let content
+
+	if (mobile) {
+		content = (
+			<div className="">
+				<MobileWrapper />
+			</div>
+		);
+	} else {
+		content = (
+			<div className="">
 				<SideHeader />
 				<DesktopWrapper />
 			</div>
-		</div>
-	);
+		);
+	};
 
 	return (content);
 }

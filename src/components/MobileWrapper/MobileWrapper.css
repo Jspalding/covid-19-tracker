@@ -1,0 +1,25 @@
+.mobile-wrapper {
+    height: 100vh;
+}
+
+.mobile-particles {
+    margin: auto;
+    position: fixed;
+}
+
+.mobile-text {
+    text-align: center;
+    color: #fff;
+    margin: auto;
+    width: 50%;
+    padding-top: 10%;
+}
+
+.mobile-text h1 {
+    font-size: 40px;
+}
+
+.emoji {
+    font-size: 70px;
+    margin: 10px 0px;
+}

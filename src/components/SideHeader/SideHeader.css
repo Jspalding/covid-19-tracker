@@ -1,0 +1,13 @@
+.side-header {
+    position: fixed;
+    width: 10%;
+    height: 100vh;
+}
+
+.side-header h1 {
+    font-size: 30px;
+    color: #fff;
+    text-align: center;
+    margin-top: 15%;
+}
+

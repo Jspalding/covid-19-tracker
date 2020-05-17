@@ -1,8 +1,10 @@
 import React from 'react'
 
+import Loader from '../../../util/Loader/Loader';
+
 const HeadDataCard = props => {
 
-    const { cardTitle, mainData, secondaryData, isLoading, cardTitleColour } = props;
+    const { cardTitle, mainData, secondaryData, isLoading, cardTitleColour, format } = props;
 
     let content = (
         <div className="rounded-sm shadow-md bg-white my-6">
@@ -10,7 +12,8 @@ const HeadDataCard = props => {
                 {cardTitle}
             </h2>
             <div className="p-2">
-                <p className="my-2 text-center text-2xl">Loading data...</p>
+                <Loader />
+                <p className="my-2 text-center text-2xl">Loading data... </p>
             </div>
         </div>
     );
@@ -21,8 +24,8 @@ const HeadDataCard = props => {
                     {cardTitle}
                 </h2>
                 <div className="p-2">
-                    <p className="my-2 text-center text-2xl">{mainData}</p>
-                    <p className="text-center">{secondaryData}</p>
+                    <p className="my-2 text-center text-2xl">{format.format(mainData)}</p>
+                    <p className="text-center">+{format.format(secondaryData)}</p>
                 </div>
             </div>
         );

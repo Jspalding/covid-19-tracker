@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
-import axios from 'axios';
+import './DesktopWrapper.css';
 
+import axios from 'axios';
 import { SUMMARY_URL } from '../../util/api.config';
 
 import HeadDataCard from "./HeadDataCard/HeadDataCard";
@@ -11,31 +12,33 @@ const DesktopWrapper = props => {
 
     const [summaryData, setSummaryData] = useState({ Countries: [], Global: [] });
     const [isLoading, setIsLoading] = useState(false);
-    // const [hasErrors, setHasErrors] = useState(false);
 
     useEffect(() => {
         setIsLoading(true);
 
         const fetchData = async () => {
-            // const result = await axios(
-            //     `${SUMMARY_URL}`
-            // );
-            // setSummaryData(result.data);
+            const result = await axios(
+                 `${SUMMARY_URL}`
+             );
+            setSummaryData(result.data);
             setIsLoading(false);
         };
 
         fetchData();
     }, []);
 
+    const formatter = new Intl.NumberFormat();
+
     return (
-        <React.Fragment>
-            <div className="grid grid-cols-6 gap-5">
+        <div className="desktop-wrapper bg-gray-200">
+            <div className="grid grid-cols-6 gap-3">
                 <HeadDataCard
                     cardTitle="Covid Cases"
                     cardTitleColour="blue"
                     mainData={summaryData.Global.TotalConfirmed}
                     secondaryData={summaryData.Global.NewConfirmed}
                     isLoading={isLoading}
+                    format={formatter}
                 />
                 <HeadDataCard
                     cardTitle="Deaths"
@@ -43,6 +46,8 @@ const DesktopWrapper = props => {
                     mainData={summaryData.Global.TotalDeaths}
                     secondaryData={summaryData.Global.NewDeaths}
                     isLoading={isLoading}
+                    format={formatter}
+
                 />
                 <HeadDataCard
                     cardTitle="Recovered"
@@ -50,6 +55,8 @@ const DesktopWrapper = props => {
                     mainData={summaryData.Global.TotalRecovered}
                     secondaryData={summaryData.Global.NewRecovered}
                     isLoading={isLoading}
+                    format={formatter}
+
                 />
             </div>
             <div className="grid grid-cols-1">
@@ -57,9 +64,10 @@ const DesktopWrapper = props => {
                     cardTitle="Countries"
                     cardTitleColour="blue"
                     mainData={summaryData.Countries}
-                    isLoading={isLoading} />
+                    isLoading={isLoading}
+                    format={formatter} />
             </div>
-        </React.Fragment>
+        </div>
     )
 }
 
