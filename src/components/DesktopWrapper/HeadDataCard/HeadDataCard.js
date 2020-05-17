@@ -13,7 +13,6 @@ const HeadDataCard = props => {
             </h2>
             <div className="p-2">
                 <Loader />
-                <p className="my-2 text-center text-2xl">Loading data... </p>
             </div>
         </div>
     );
