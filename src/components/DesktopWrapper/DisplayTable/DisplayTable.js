@@ -7,15 +7,15 @@ const DisplayTable = props => {
     const { cardTitle, mainData, isLoading, cardTitleColour, format } = props;
 
     let content = (
-    <div className="rounded-sm shadow-md bg-white my-6">
-        <h2 className={`bg-${cardTitleColour}-600 text-white font-semibold text-center p-2`}>
-            {cardTitle}
-        </h2>
-        <div className="p-2">
-            <Loader />
+        <div className="rounded-sm shadow-md bg-white my-6">
+            <h2 className={`bg-${cardTitleColour}-600 text-white font-semibold text-center p-2`}>
+                {cardTitle}
+            </h2>
+            <div className="p-2">
+                <Loader />
+            </div>
         </div>
-    </div>
-    ) 
+    )
 
     if (!isLoading && mainData) {
         content = (
