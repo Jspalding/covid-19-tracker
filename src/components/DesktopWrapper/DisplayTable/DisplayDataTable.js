@@ -50,11 +50,11 @@ const DisplayDataTable = ({ columns, data, cardTitle, isLoading, cardTitleColour
 
   //Default to loading state
   let content = (
-    <div className="rounded-sm shadow-md bg-white my-6">
-      <h2 className={`bg-${cardTitleColour}-600 text-white font-semibold text-center p-2`}>
+    <div className="rounded-sm shadow-md bg-blue-900 my-6 px-3">
+      <h2 className="text-indigo-800 font-semibold text-left p-2">
         {cardTitle}
       </h2>
-      <div className="p-2">
+      <div className="p-2 text-white">
         <Loader />
       </div>
     </div>
@@ -62,8 +62,8 @@ const DisplayDataTable = ({ columns, data, cardTitle, isLoading, cardTitleColour
 
   if (!isLoading && data) {
     content = (
-      <div className="rounded-sm shadow-md bg-white">
-        <h2 className={`bg-${cardTitleColour}-600 text-white font-semibold py-1 px-3`}>{cardTitle}</h2>
+      <div className="rounded-sm shadow-md bg-blue-900 px-3">
+        <h2 className="bg-blue-900 text-indigo-800 font-semibold px-4 py-2">{cardTitle}</h2>
 
         {/* Debug pagination
         
@@ -83,7 +83,7 @@ const DisplayDataTable = ({ columns, data, cardTitle, isLoading, cardTitleColour
           </code>
         </pre> */}
 
-        <table  {...getTableProps()} className="table-auto w-full table-fixed">
+        <table  {...getTableProps()} className="table-auto w-full table-fixed text-white">
           <thead>
             {headerGroups.map(headerGroup => (
               <tr {...headerGroup.getHeaderGroupProps()}>
@@ -109,7 +109,7 @@ const DisplayDataTable = ({ columns, data, cardTitle, isLoading, cardTitleColour
                       return (
                         <td {...cell.getCellProps({
                           className: cell.column.className
-                        })} className="px-4 py-2 border">
+                        })} className="px-4 py-2 border border-indigo-900">
                           {cell.render('Cell')}
                         </td>
                       )
@@ -120,8 +120,8 @@ const DisplayDataTable = ({ columns, data, cardTitle, isLoading, cardTitleColour
             )}
           </tbody>
         </table>
-        <div className="pagination">
-          <button onClick={() => gotoPage(0)} disabled={!canPreviousPage}>
+        <div className="pagination px-0 py-5 text-white">
+          <button className="font" onClick={() => gotoPage(0)} disabled={!canPreviousPage}>
             {'<<'}
           </button>{' '}
           <button onClick={() => previousPage()} disabled={!canPreviousPage}>
@@ -139,6 +139,7 @@ const DisplayDataTable = ({ columns, data, cardTitle, isLoading, cardTitleColour
               {pageIndex + 1} of {pageOptions.length}
             </strong>{' '}
           </span>
+          {/* 
           <span>
             | Go to page:{' '}
             <input
@@ -162,7 +163,7 @@ const DisplayDataTable = ({ columns, data, cardTitle, isLoading, cardTitleColour
                 Show {pageSize}
               </option>
             ))}
-          </select>
+          </select> */}
         </div>
       </div>
     );

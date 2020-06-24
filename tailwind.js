@@ -60,7 +60,7 @@ module.exports = {
         600: '#d69e2e',
         700: '#b7791f',
         800: '#975a16',
-        900: '#744210',
+        900: '#f6e120',
       },
       green: {
         100: '#f0fff4',
@@ -82,7 +82,7 @@ module.exports = {
         600: '#1cb09a',
         700: '#2c7a7b',
         800: '#285e61',
-        900: '#234e52',
+        900: '#01d6c0',
       },
       blue: {
         100: '#ebf8ff',
@@ -93,7 +93,7 @@ module.exports = {
         600: '#418bca',
         700: '#2b6cb0',
         800: '#2c5282',
-        900: '#2a4365',
+        900: '#21222d',
       },
       indigo: {
         100: '#ebf4ff',
@@ -103,8 +103,8 @@ module.exports = {
         500: '#667eea',
         600: '#5a67d8',
         700: '#4c51bf',
-        800: '#434190',
-        900: '#3c366b',
+        800: '#707884',
+        900: '#37404f',
       },
       purple: {
         100: '#faf5ff',
@@ -126,7 +126,7 @@ module.exports = {
         600: '#d53f8c',
         700: '#b83280',
         800: '#97266d',
-        900: '#702459',
+        900: '#e90d76',
       },
     },
     spacing: {
@@ -248,6 +248,7 @@ module.exports = {
       ],
       serif: ['Georgia', 'Cambria', '"Times New Roman"', 'Times', 'serif'],
       mono: ['Menlo', 'Monaco', 'Consolas', '"Liberation Mono"', '"Courier New"', 'monospace'],
+      display: ['Roboto']
     },
     fontSize: {
       xs: '0.75rem',

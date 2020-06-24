@@ -1,14 +1,20 @@
 import React from 'react'
 import './SideHeader.css';
 
-import Particles from 'react-particles-js';
+import GHLogo from "./gh.png";
 
 const SideHeader = props => {
 
     return (
-        <div className="bg-blue-900 side-header">
-            <h1>Covid19 Tracker</h1>
-        </div>
+        <div className="side-header">
+            <a
+                href="https://github.com/Jspalding"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                <img className="gh-logo" src={GHLogo} alt="Github Link" />
+            </a>
+        </div >
     )
 }
 
